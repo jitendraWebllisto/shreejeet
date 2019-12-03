@@ -20,14 +20,22 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
+import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { ParticlesModule} from 'angular-particle';
+import { ApiService } from './service/api.service';
+import { AuthGuard} from './service/auth.guard'
+
+
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoginComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    HttpClientModule,
-    AppRoutingModule,
+    HttpClientModule,ParticlesModule,
+    AppRoutingModule,ReactiveFormsModule,FormsModule,
 
     ThemeModule.forRoot(),
 
@@ -42,6 +50,9 @@ import {
     }),
     CoreModule.forRoot(),
   ],
+  providers: [ApiService,AuthGuard,
+        { provide: LocationStrategy, useClass: HashLocationStrategy },
+    ],
   bootstrap: [AppComponent],
 })
 export class AppModule {

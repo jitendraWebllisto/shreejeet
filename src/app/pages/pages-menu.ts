@@ -16,7 +16,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Reward',
-    icon: 'keyboard-outline',
+    icon: 'keypad-outline',
     link: '/pages/iot-dashboard',
   },
   {
@@ -25,7 +25,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/iot-dashboard',
   },{
     title: 'Setting',
-    icon: 'gear-outline',
+    icon: 'layout-outline',
     link: '/pages/iot-dashboard',
   },
 

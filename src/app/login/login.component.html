@@ -1,0 +1,67 @@
+<ngx-header></ngx-header>
+
+
+<!-- <nb-layout-footer fixed>
+</nb-layout-footer> -->
+
+<div class="container loginbox">
+  <div id="login-row" class="row justify-content-center align-items-center">
+      <div id="login-column" class="col-md-5">
+          <div id="login-box" class="col-md-12">
+                  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
+                          <h3 class="text-center text-white">Login</h3>
+                          <div class="alert alert-danger" *ngIf = "errorDiv" >
+                              {{errorMessage}} 
+                          </div> 
+                          <!-- this is for option to show error -->
+                          <div class="form-group">
+                              <label for="email" class="text-white">Email</label><br>
+                              <input 
+                              placeholder="Enter Email"
+                                  type="text" 
+                                  name="email" 
+                                  id="email" 
+                                  class="form-control" 
+                                  formControlName="email" 
+                                  [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                                  value=""
+                                  />
+                                  <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                      <div *ngIf="f.email.errors.required">Email is required</div>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label for="password" class="text-white">Password:</label><br>
+                              <input placeholder="Enter Password" type="password" name="password" id="password" class="form-control"[ngClass]="{ 'is-invalid': submitted && f.password.errors }" formControlName="password" />
+                              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                  <div *ngIf="f.password.errors.required">Password required</div>
+                          </div>
+                          </div>
+                          
+                          <div class="form-group">
+                              
+                              <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                              <div id="register-link" class="text-right">
+                                      <a routerLink="/register" class="text-white text-decoration-none">Register here</a>
+                              </div>
+                          </div>
+                          
+                      </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+        <!-- <nb-layout-footer fixed>
+         </nb-layout-footer>
+</nb-layout> -->
+<ngx-footer></ngx-footer>
+
+<!-- <ngx-spinner
+bdColor="rgba(51,51,51,0.8)"
+size="medium"
+color="#fff"
+type="ball-scale-multiple"
+>
+<p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner> -->

@@ -8,13 +8,20 @@ import {
   NbRequestPasswordComponent,
   NbResetPasswordComponent,
 } from '@nebular/auth';
+import { LoginComponent } from './login/login.component';
+import {AuthGuard} from './service/auth.guard'
 
 const routes: Routes = [
-  {
-    path: 'pages',
-    loadChildren: () => import('app/pages/pages.module')
-      .then(m => m.PagesModule),
-  },
+  // {path:'',component:LoginComponent},
+  {path: 'pages', loadChildren: 'app/pages/pages.module#PagesModule'},
+  {path:'login',component:LoginComponent,canActivate:[AuthGuard]},
+
+  // {
+  //   path: 'pages',
+  //   loadChildren: () => import('app/pages/pages.module')
+  //     .then(m => m.PagesModule),
+  // },
+
   {
     path: 'auth',
     component: NbAuthComponent,
@@ -45,12 +52,12 @@ const routes: Routes = [
       },
     ],
   },
-  { path: '', redirectTo: 'pages', pathMatch: 'full' },
-  { path: '**', redirectTo: 'pages' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '**', redirectTo: 'login' },
 ];
 
 const config: ExtraOptions = {
-  useHash: false,
+  useHash: true,
 };
 
 @NgModule({
